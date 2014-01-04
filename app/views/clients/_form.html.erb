@@ -1,0 +1,81 @@
+<%= form_for(@client) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :guests_of_honor %><br>
+    <%= f.text_field :guests_of_honor %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_event %><br>
+    <%= f.date_select :date_of_event %>
+  </div>
+  <div class="field">
+    <%= f.label :date_booked %><br>
+    <%= f.date_select :date_booked %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_event %><br>
+    <%= f.text_field :type_of_event %>
+  </div>
+  <div class="field">
+    <%= f.label :minimum_guarantee %><br>
+    <%= f.number_field :minimum_guarantee %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_of_guests %><br>
+    <%= f.number_field :amount_of_guests %>
+  </div>
+  <div class="field">
+    <%= f.label :base_price %><br>
+    <%= f.text_field :base_price %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_charges %><br>
+    <%= f.text_field :additional_charges %>
+  </div>
+  <div class="field">
+    <%= f.label :deposit %><br>
+    <%= f.text_field :deposit %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_1_date %><br>
+    <%= f.date_select :payment_1_date %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_2_date %><br>
+    <%= f.date_select :payment_2_date %>
+  </div>
+  <div class="field">
+    <%= f.label :final_payment_date %><br>
+    <%= f.date_select :final_payment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_1 %><br>
+    <%= f.text_field :payment_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_2 %><br>
+    <%= f.text_field :payment_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :menu %><br>
+    <%= f.date_select :menu %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

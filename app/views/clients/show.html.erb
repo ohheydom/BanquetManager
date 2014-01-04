@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Guests of honor:</strong>
+  <%= @client.guests_of_honor %>
+</p>
+
+<p>
+  <strong>Date of event:</strong>
+  <%= @client.date_of_event %>
+</p>
+
+<p>
+  <strong>Date booked:</strong>
+  <%= @client.date_booked %>
+</p>
+
+<p>
+  <strong>Type of event:</strong>
+  <%= @client.type_of_event %>
+</p>
+
+<p>
+  <strong>Minimum guarantee:</strong>
+  <%= @client.minimum_guarantee %>
+</p>
+
+<p>
+  <strong>Amount of guests:</strong>
+  <%= @client.amount_of_guests %>
+</p>
+
+<p>
+  <strong>Base price:</strong>
+  <%= @client.base_price %>
+</p>
+
+<p>
+  <strong>Additional charges:</strong>
+  <%= @client.additional_charges %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @client.deposit %>
+</p>
+
+<p>
+  <strong>Payment 1 date:</strong>
+  <%= @client.payment_1_date %>
+</p>
+
+<p>
+  <strong>Payment 2 date:</strong>
+  <%= @client.payment_2_date %>
+</p>
+
+<p>
+  <strong>Final payment date:</strong>
+  <%= @client.final_payment_date %>
+</p>
+
+<p>
+  <strong>Payment 1:</strong>
+  <%= @client.payment_1 %>
+</p>
+
+<p>
+  <strong>Payment 2:</strong>
+  <%= @client.payment_2 %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @client.menu %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

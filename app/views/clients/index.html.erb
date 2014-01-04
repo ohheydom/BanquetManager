@@ -1,0 +1,9 @@
+<h1>Clients</h1>
+<%= form_tag clients_path, method: 'get', id: 'clients_form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+<div id="clients"><%= render partial: 'clients' %></div>
+<br>
+<%= link_to 'Six Week Schedule', todolist_path %>
+<%= link_to 'New Client', new_client_path %>

@@ -1,0 +1,1 @@
+json.extract! @client, :id, :name, :guests_of_honor, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu, :created_at, :updated_at
