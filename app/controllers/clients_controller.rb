@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 5, page: params[:page]) 
+    @clients = Client.send(date_scope).search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 50, page: params[:page]) 
   end
 
   def show
@@ -68,7 +68,7 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :guests_of_honor, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu)
+      params.require(:client).permit(:name, :guests_of_honor, :phone_number, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu)
     end
 
     def sort_column
@@ -78,5 +78,8 @@ class ClientsController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] :  "asc"
     end
-
+    
+    def date_scope
+      %w[past future all].include?(params[:datescope]) ? params[:datescope] : "all"
+    end
 end

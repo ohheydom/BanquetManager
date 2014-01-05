@@ -1,5 +1,12 @@
 <h1>Clients</h1>
 <%= form_tag clients_path, method: 'get', id: 'clients_form' do %>
+  <%= radio_button_tag :datescope, "all", true %>
+  <%= label_tag :datescopelabel, "All" %>
+  <%= radio_button_tag :datescope, "future" %>
+  <%= label_tag :datescopelabel, "Future" %>
+  <%= radio_button_tag :datescope, "past" %>
+  <%= label_tag :datescopelabel, "Past" %>
+  <br>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search", name: nil %>
 <% end %>

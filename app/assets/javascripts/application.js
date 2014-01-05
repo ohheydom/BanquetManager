@@ -11,4 +11,8 @@ $(document).ready(function(){
     $.get($('#clients_form').attr('action'), $('#clients_form').serialize(),null, "script");
     return false;
   });
+  $('#clients_form [name="datescope"]').change(function(){
+     $.get($('#clients_form').attr('action'), $('#clients_form').serialize(), null, "script");
+    return false;
+  });
 });

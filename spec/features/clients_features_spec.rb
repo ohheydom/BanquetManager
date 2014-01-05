@@ -6,9 +6,9 @@ describe "Clients Pages" do
       visit clients_path
       expect(page).to have_link("Six Week Schedule", todolist_path)
     end
-    it "has a sort by All/Previous/Future events" do
+    it "has a sort by All/Past/Future events" do
       visit clients_path
-      expect(page).to have_content('Sort')
+      expect(page).to have_content('Future')
     end
   end
 end 
