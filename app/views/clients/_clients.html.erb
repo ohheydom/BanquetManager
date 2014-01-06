@@ -4,23 +4,19 @@
 <table class="table">
   <thead>
     <tr>
-      <th><%= sortable "name", "Name" %></th>
-      <th><%= sortable "guests_of_honor", "Guests Of Honor" %></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "guests_of_honor" %></th>
       <th>Phone Number</th>
-      <th>Date of event</th>
-      <th>Date booked</th>
+      <th><%= sortable "date_of_event" %></th>
+      <th><%= sortable "date_booked" %></th>
       <th>Type of event</th>
       <th>Minimum guarantee</th>
       <th>Amount of guests</th>
       <th>Base price</th>
-      <th>Additional charges</th>
-      <th>Deposit</th>
-      <th>Payment 1 date</th>
-      <th>Payment 2 date</th>
-      <th>Final payment date</th>
-      <th>Payment 1</th>
-      <th>Payment 2</th>
-      <th>Menu</th>
+      <th><%= sortable "payment_1_date" %></th>
+      <th><%= sortable "payment_2_date" %></th>
+      <th><%= sortable "final_payment_date" %></th>
+      <th><%= sortable "menu" %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -39,13 +35,9 @@
         <td><%= client.minimum_guarantee %></td>
         <td><%= client.amount_of_guests %></td>
         <td><%= client.base_price %></td>
-        <td><%= client.additional_charges %></td>
-        <td><%= client.deposit %></td>
         <td><%= client.payment_1_date %></td>
         <td><%= client.payment_2_date %></td>
         <td><%= client.final_payment_date %></td>
-        <td><%= client.payment_1 %></td>
-        <td><%= client.payment_2 %></td>
         <td><%= client.menu %></td>
         <td><%= link_to 'Show', client %></td>
         <td><%= link_to 'Edit', edit_client_path(client) %></td>
@@ -54,4 +46,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @clientse %>
+<%= will_paginate @clients %>

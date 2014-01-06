@@ -1,15 +1,26 @@
-<table class="table">
-  <th>Janaury 20- January 27</th>
-  <th>Payments</th>
-  <th>Finals</th>
-  <th>Counts</th>
-  <tr>
-  <td></td>
-    <td>test</td>
-    <td>testfinal</td>
-    <td>testcount</td>
-  </tr><% @clients.each do |x| %>
-  <%= x.name %>
-<% end %>
-
-</table>
+<%= link_to "Back to the Main Page", root_path %>
+<div class="row">
+  <% @dates.each do |date| %>
+    <div class="col-md-12 todo_div">
+      <h2 class="center"><%= "#{date.strftime("%D")} - #{(date+5).strftime("%D")}" %></h2>
+      <div class="col-md-4">
+        <h4>Payments</h4>
+        <% @clients.where("(payment_1_date >= ? AND payment_1_date <= ?) OR (payment_2_date >= ? AND payment_2_date <= ?) OR (final_payment_date >= ? AND final_payment_date <= ?)", date, date+6, date, date+6, date, date+6).each do |client| %>
+          <li><%= "#{client.name} - #{client.date_of_event}" %></li>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <h4>Finals</h4>
+        <% @clients.where(menu: date..(date+6)).each do |client| %>
+          <li><%= "#{client.name} - #{client.menu.strftime("%D")}" %></li>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <h4>Counts</h4>
+        <% @clients.where(final_payment_date: (date+6)..(date+13)).each do |client| %>
+          <li><%= "#{client.name} - #{client.date_of_event}" %><ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

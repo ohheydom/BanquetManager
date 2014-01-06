@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :date_scope
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   # GET /clients
   # GET /clients.json
