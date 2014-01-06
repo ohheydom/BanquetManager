@@ -5,6 +5,11 @@ This Ruby on Rails project keeps track of all the events I've booked. You're abl
 ##
 Originally I was using OpenOffice Calc to keep track of all the events I booked. Every few weeks I would go in, sort by date, write down when all the payments were due, then sort by menu date and write down all the parties I needed to do the menu for. Extracting all the data by hand became tiresome. So I automated it.
 
+##Todo List
+* Commission Calculator
+* Multiple Users
+* Less database queries
+
 ##Installation
 
 I've used postgresql, so as long as that's already installed, this should be simple. Or you can migrate it over to mysql.

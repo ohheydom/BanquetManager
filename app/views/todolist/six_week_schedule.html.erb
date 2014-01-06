@@ -12,7 +12,7 @@
       <div class="col-md-4">
         <h4>Finals</h4>
         <% @clients.where(menu: date..(date+6)).each do |client| %>
-          <li><%= "#{client.name} - #{client.menu.strftime("%D")}" %></li>
+          <li><%= "#{client.name} - #{client.menu}" %></li>
         <% end %>
       </div>
       <div class="col-md-4">
