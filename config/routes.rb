@@ -4,6 +4,7 @@ BanquetManager::Application.routes.draw do
   root 'clients#index'
 
   get 'six_week_schedule', to: 'todolist#six_week_schedule', as: :todolist
+  get 'commissions', to: 'commissions#commissions', as: :commissions
 
   post 'clients', to: 'clients#index', as: :clients_index
 end

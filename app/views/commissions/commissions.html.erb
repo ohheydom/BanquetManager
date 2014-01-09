@@ -1,0 +1,65 @@
+<h2>Current Month:</h2>
+<h3>New Events:</h3>
+<table class='table'>
+  <th>Name</th>
+  <th>Commission</th>
+  <% @new_parties_this_month.each do |event| %>
+    <tr>
+      <td>
+      <%= link_to event.name, edit_client_path(event)  %>
+      </td>
+      <td>
+        <%= "$#{compute_commission_on_new_party(event)}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<h3>Positive Adjustments:</h3>
+<table class='table'>
+  <th>Name</th>
+  <th>Commission</th>
+  <% @positive_adjustments_this_month.each do |event| %>
+    <tr>
+      <td>
+      <%= link_to event.name, edit_client_path(event)  %>
+      </td>
+      <td>
+        <%= "$#{compute_commission_on_positive_adjustment(event)}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class ="total_commission">Total: $<%= compute_commission_on_all(@new_parties_this_month, @positive_adjustments_this_month) %></div>
+</br>
+<h2>Last Month:</h2>
+<h3>New Events:</h3>
+<table class='table'>
+  <th>Name</th>
+  <th>Commission</th>
+  <% @new_parties_prev_month.each do |event| %>
+    <tr>
+      <td>
+      <%= link_to event.name, edit_client_path(event)  %>
+      </td>
+      <td>
+        <%= "$#{compute_commission_on_new_party(event)}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<h3>Positive Adjustments:</h3>
+<table class='table'>
+  <th>Name</th>
+  <th>Commission</th>
+  <% @positive_adjustments_prev_month.each do |event| %>
+    <tr>
+      <td>
+      <%= link_to event.name, edit_client_path(event)  %>
+      </td>
+      <td>
+        <%= "$#{compute_commission_on_positive_adjustment(event)}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class ="total_commission">Total: $<%= compute_commission_on_all(@new_parties_prev_month, @positive_adjustments_prev_month) %></div>

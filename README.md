@@ -1,12 +1,11 @@
 #Banquet Manager
 
-This Ruby on Rails project keeps track of all the events I've booked. You're able to sort the information by name, date booked, date of the event, and other options. You can view by events that have already occurred, future events, or all events. Most importantly, it also creates a 6 week To-Do list.
+This Ruby on Rails project keeps track of all the events I've booked. You're able to sort the information by name, date booked, date of the event, and other options. You can view by events that have already occurred, future events, or all events. It calculates commission. And most importantly, it also creates a 6 week To-Do list.
 
 ##
 Originally I was using OpenOffice Calc to keep track of all the events I booked. Every few weeks I would go in, sort by date, write down when all the payments were due, then sort by menu date and write down all the parties I needed to do the menu for. Extracting all the data by hand became tiresome. So I automated it.
 
 ##Todo List
-* Commission Calculator
 * Multiple Users
 * Less database queries
 
