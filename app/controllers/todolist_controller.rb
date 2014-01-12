@@ -1,8 +1,9 @@
 class TodolistController < ApplicationController
   helper_method :find_prev_tuesday
+  before_filter :authenticate_user!
 
   def six_week_schedule
-    @clients = Client.future
+    @clients = User.find(current_user.id).clients.future
     @dates = create_arr_of_six_week_start_dates
   end
 

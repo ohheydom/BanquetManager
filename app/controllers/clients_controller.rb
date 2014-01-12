@@ -1,10 +1,12 @@
 class ClientsController < ApplicationController
   helper_method :sort_column, :sort_direction, :date_scope
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.send(date_scope).search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 50, page: params[:page]) 
+    @clients = User.find(current_user.id).clients.send(date_scope).search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 50, page: params[:page]) 
+ 
   end
 
   def show
@@ -12,7 +14,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = User.find(current_user.id).clients.new
   end
 
   # GET /clients/1/edit
@@ -22,7 +24,7 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(client_params)
+    @client = User.find(current_user.id).clients.new(client_params)
 
     respond_to do |format|
       if @client.save
@@ -63,12 +65,12 @@ class ClientsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      @client = User.find(current_user.id).clients.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :guests_of_honor, :phone_number, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu)
+      params.require(:client).permit(:name, :guests_of_honor, :phone_number, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu, :user_id)
     end
 
     def sort_column
@@ -80,6 +82,6 @@ class ClientsController < ApplicationController
     end
     
     def date_scope
-      %w[past future all].include?(params[:datescope]) ? params[:datescope] : "all"
+      %w[past future load].include?(params[:datescope]) ? params[:datescope] : "load"
     end
 end
