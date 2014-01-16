@@ -9,6 +9,9 @@ class Client < ActiveRecord::Base
   validates :minimum_guarantee, :amount_of_guests, :phone_number, :base_price, :additional_charges, :deposit, 
             numericality: true
 
+  validates_date :payment_2_date, :on_or_after => :payment_1_date
+  validates_date :payment_1_date, :menu, :payment_2_date, :date_of_event, :final_payment_date, :on_or_after => :date_booked
+
   class << self
     def search(search)
       if search
