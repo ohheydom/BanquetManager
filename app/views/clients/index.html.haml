@@ -1,0 +1,17 @@
+%div.row
+  %h1 Clients 
+  %div.col-md-4
+    %div.form-group
+      = form_tag clients_path, method: 'get', id: 'clients_form' do
+        = radio_button_tag :datescope, "all", true
+        = label_tag :datescopelabel, "All"
+        = radio_button_tag :datescope, "future"
+        = label_tag :datescopelabel, "Future"
+        = radio_button_tag :datescope, "past"
+        = label_tag :datescopelabel, "Past"
+        %br
+        = text_field_tag :search, params[:search], class: 'form-control'
+        = submit_tag "Search", name: nil, class: 'btn btn-default'
+  %div.col-md-4
+  %div.col-md-4
+%div#clients= render partial: 'clients'

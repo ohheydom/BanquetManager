@@ -1,0 +1,38 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :datescope, params[:datescope]
+= hidden_field_tag :sort, params[:sort]
+%table.table
+  %thead
+    %tr
+      %th= sortable "name"
+      %th= sortable "guests_of_honor"
+      %th Phone Number
+      %th= sortable "date_of_event"
+      %th= sortable "date_booked"
+      %th Type of event
+      %th Minimum guarantee
+      %th Amount of guests
+      %th Base price
+      %th= sortable "payment_1_date", "Payment 1"
+      %th= sortable "payment_2_date", "Payment 2"
+      %th= sortable "final_payment_date", "Final Payment"
+      %th= sortable "menu"
+      %th>
+  %tbody
+    - @clients.each do |client|
+      %tr
+        %td= link_to client.name, edit_client_path(client)
+        %td= client.guests_of_honor
+        %td= client.phone_number
+        %td= client.date_of_event
+        %td= client.date_booked
+        %td= client.type_of_event
+        %td= client.minimum_guarantee
+        %td= client.amount_of_guests
+        %td= client.base_price
+        %td= client.payment_1_date
+        %td= client.payment_2_date
+        %td= client.final_payment_date
+        %td= client.menu
+        %td= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }
+= will_paginate @clients

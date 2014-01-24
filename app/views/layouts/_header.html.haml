@@ -1,0 +1,13 @@
+%div.row
+  %div.col-md-4
+    %p.notice= notice
+    %p.alert= alert
+  %div.col-md-4.col-md-offset-4
+    - if user_signed_in?
+      %table.table
+        %tr
+          %td= link_to 'Main Page', root_path
+          %td= link_to 'Six Week Schedule', todolist_path
+          %td= link_to 'New Client', new_client_path
+          %td= link_to 'Commissions', commissions_path
+          %td= link_to 'Sign out', destroy_user_session_path, method: 'delete'

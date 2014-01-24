@@ -1,0 +1,12 @@
+%div.row
+  %div.col-md-4.col-md-offset-4
+    = form_for('user', :url => user_session_path, :html => {class: 'form-inline'}) do |f|
+      %div.form-group
+        = f.label :username, class:'sr-only'
+        = f.text_field :email, :autofocus => true, class: 'form-control', placeholder: "E-mail"
+      %div.form-group
+        = f.label :password, class: 'sr-only'
+        = f.password_field :password, class: 'form-control', placeholder: "Password"
+      = f.submit "Sign_in", class: 'btn btn-default'
+      = f.label :remember_me
+      = f.check_box :remember_me, class:"checkbox"

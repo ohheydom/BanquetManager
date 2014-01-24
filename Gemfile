@@ -40,6 +40,7 @@ end
 gem 'will_paginate'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
+gem 'haml-rails'
 
 # Specs 
 group :development, :test do

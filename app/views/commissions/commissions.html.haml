@@ -1,0 +1,37 @@
+%h2 Current month:
+%h3 New Events:
+%table.table
+  %th Name
+  %th Commission
+  - @new_parties_this_month.each do |event|
+    %tr
+      %td= link_to event.name, edit_client_path(event)
+      %td= "$#{compute_commission_on_new_party(event)}"
+%h3 Positive Adjustments:
+%table.table
+  %th Name
+  %th Commission
+  - @positive_adjustments_this_month.each do |event|
+    %tr
+      %td= link_to event.name, edit_client_path(event)
+      %td= "$#{compute_commission_on_positive_adjustment(event)}"
+%div.total_commission= "Total: $#{compute_commission_on_all(@new_parties_this_month, @positive_adjustments_this_month)}"
+%br
+%h2 Last Month:
+%h3 New Events:
+%table.table
+  %th Name
+  %th Commission
+  - @new_parties_prev_month.each do |event|
+    %tr
+      %td= link_to event.name, edit_client_path(event)
+      %td= "$#{compute_commission_on_new_party(event)}"
+%h3 Positive Adjustments:
+%table.table
+  %th Name
+  %th Commission
+  - @positive_adjustments_prev_month.each do |event|
+    %tr
+      %td= link_to event.name, edit_client_path(event)
+      %td= "$#{compute_commission_on_positive_adjustment(event)}"
+%div.total_commission= "Total: $#{compute_commission_on_all(@new_parties_prev_month, @positive_adjustments_prev_month)}"
