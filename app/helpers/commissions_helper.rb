@@ -1,6 +1,6 @@
 module CommissionsHelper
   COMMISSION_RATE = '.04'.to_f
-  BREAKAGE_RATE = '1.18'.to_f #leave at 1 if no amount is deducted from commission based on antiquated clauses
+  BREAKAGE_RATE = '1.18'.to_f #leave at 1 if no amount is deducted from commission
   def compute_commission_on_new_party(party)
     comm =  (party.minimum_guarantee*party.base_price)*COMMISSION_RATE/BREAKAGE_RATE
     comm.round(2)
@@ -14,12 +14,8 @@ module CommissionsHelper
 
   def compute_commission_on_all(new_events, month_events)
     amount = 0
-    new_events.each do |event|
-      amount+= compute_commission_on_new_party(event)
-    end
-    month_events.each do |event|
-      amount+= compute_commission_on_positive_adjustment(event)
-    end
+    new_events.each { |event| amount+= compute_commission_on_new_party(event) }
+    month_events.each { |event| amount+= compute_commission_on_positive_adjustment(event) }
     return amount
   end
 

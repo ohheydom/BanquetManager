@@ -17,13 +17,15 @@ class TodolistController < ApplicationController
   
   def find_prev_tuesday(date)
     current_date = DateTime.strptime(date, "%D") 
-    if current_date.wday.between?(2,6) 
-      tuesday_date = current_date - (current_date.wday-2)
-    elsif current_date.wday == 0
-      tuesday_date = current_date - 5
-    elsif current_date.wday == 1
-      tuesday_date = current_date + 1
+    tuesday_date = case current_date.wday
+    when 2..6
+      current_date - (current_date.wday - 2)
+    when 0
+      current_date - 5
+    when 1
+      current_date + 1
     end
+
     return tuesday_date
   end
 end

@@ -1,8 +1,8 @@
 class Client < ActiveRecord::Base
   belongs_to :user
   
-  scope :future, -> { where('date_of_event >= ?', Date.today) }
-  scope :past, -> { where('date_of_event <= ?', Date.today) }
+  scope :future, -> { where('date_of_event > ?', Date.today) }
+  scope :past, -> { where('date_of_event < ?', Date.today) }
 
   #Validations
   validates :name, :guests_of_honor, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :deposit, presence: true
