@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Clients Pages" do
   describe "Index Page" do
+    let(:user) { FactoryGirl.create(:user) } 
+    before { feature_sign_in user }
     it "has a link to a todo list" do
       visit clients_path
       expect(page).to have_link("Six Week Schedule", todolist_path)

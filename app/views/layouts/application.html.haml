@@ -7,4 +7,6 @@
 %body
   %div.container-fluid
     = render partial: '/layouts/header'
+    %p.notice= notice
+    %p.alert= alert
     = yield
