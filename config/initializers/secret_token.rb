@@ -9,4 +9,16 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-BanquetManager::Application.config.secret_key_base = '33ea637a7e01faed5c0796e8134e1f16a390eb04ae6875757a7b901cfa6354f648b35f203f6a07efab705c485deca6b4ad65116fd87a7d8af8ba6414b32a3c24'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    File.read(token_file).chomp
+  else
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+BanquetManager::Application.config.secret_key_base = secure_token

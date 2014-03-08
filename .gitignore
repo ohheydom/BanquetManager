@@ -17,3 +17,8 @@
 
 /config/application.yml
 /bin
+
+*.swp
+*~
+.secret
+doc/
