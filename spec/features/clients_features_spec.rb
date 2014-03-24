@@ -1,20 +1,23 @@
 require 'spec_helper'
 
-describe "Clients Pages" do
-  describe "Index Page" do
-    let(:user) { FactoryGirl.create(:user) } 
+describe 'Clients Pages' do
+  describe 'Index Page' do
+    let(:user) { FactoryGirl.create(:user) }
     before { feature_sign_in user }
-    it "has a link to a todo list" do
+
+    it 'has a link to a todo list' do
       visit clients_path
-      expect(page).to have_link("Six Week Schedule", todolist_path)
+      expect(page).to have_link('Six Week Schedule', todolist_path)
     end
-    it "has a link to commissions" do
+
+    it 'has a link to commissions' do
       visit clients_path
-      expect(page).to have_link("Commissions", commissions_path)
+      expect(page).to have_link('Commissions', commissions_path)
     end
-    it "has a sort by All/Past/Future events" do
+
+    it 'has a sort by All/Past/Future events' do
       visit clients_path
       expect(page).to have_content('Future')
     end
   end
-end 
+end

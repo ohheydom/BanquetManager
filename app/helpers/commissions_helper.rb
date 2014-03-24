@@ -1,14 +1,15 @@
 module CommissionsHelper
   COMMISSION_RATE = '.04'.to_f
-  BREAKAGE_RATE = '1.18'.to_f #leave at 1 if no amount is deducted from commission
+  BREAKAGE_RATE = '1.18'.to_f # leave at 1 if no amount is deducted from commission
+
   def compute_commission_on_new_party(party)
-    comm =  (party.minimum_guarantee*party.base_price)*COMMISSION_RATE/BREAKAGE_RATE
+    comm =  (party.minimum_guarantee * party.base_price) * COMMISSION_RATE / BREAKAGE_RATE
     comm.round(2)
   end
-  
+
   def compute_commission_on_positive_adjustment(party)
     party.additional_charges.nil? ? additional_charges = 0 : additional_charges = party.additional_charges
-    comm =  ((additional_charges+((party.amount_of_guests-party.minimum_guarantee)*party.base_price))*COMMISSION_RATE)/BREAKAGE_RATE
+    comm =  ((additional_charges + ((party.amount_of_guests-party.minimum_guarantee) * party.base_price)) * COMMISSION_RATE) / BREAKAGE_RATE
     comm.round(2)
   end
 
@@ -18,5 +19,4 @@ module CommissionsHelper
     month_events.each { |event| amount+= compute_commission_on_positive_adjustment(event) }
     return amount
   end
-
 end

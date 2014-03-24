@@ -7,7 +7,7 @@ describe ClientsController do
     let(:client) { FactoryGirl.create(:client, user: user) }
     before { sign_in user }
 
-    it "assigns @clients" do
+    it 'assigns @clients' do
       get :index
       expect(assigns(:clients)).to eq([client])
     end

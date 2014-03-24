@@ -1,1 +1,1 @@
-Date::DATE_FORMATS[:default]="%D"
+Date::DATE_FORMATS[:default] = '%D'
