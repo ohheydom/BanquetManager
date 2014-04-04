@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
-  helper_method :sort_column, :sort_direction, :date_scope
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  include ClientsHelper
 
   def index
     @clients = User.find(current_user.id).clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page])
@@ -57,18 +57,10 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:name, :guests_of_honor, :phone_number, :date_of_event, :date_booked, :type_of_event, :minimum_guarantee, :amount_of_guests, :base_price, :additional_charges, :deposit, :payment_1_date, :payment_2_date, :final_payment_date, :payment_1, :payment_2, :menu, :user_id)
-  end
-
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : 'name'
-  end
-
-  def sort_direction
-    %w(asc desc).include?(params[:direction]) ? params[:direction] :  'asc'
-  end
-  
-  def date_scope
-    %w(past future load).include?(params[:datescope]) ? params[:datescope] : 'load'
+    params.require(:client).permit(:name, :guests_of_honor, :phone_number,
+                                   :date_of_event, :date_booked, :type_of_event,
+                                   :minimum_guarantee, :amount_of_guests, :base_price,
+                                   :additional_charges, :deposit, :payment_1_date, :payment_2_date,
+                                   :final_payment_date, :payment_1, :payment_2, :menu, :user_id)
   end
 end
