@@ -17,18 +17,18 @@ $main-bg: #fff0dc;
 @import 'bootstrap';
 @import 'font-awesome';
 
-//sortable link arrows
+// sortable link arrows
 .asc:before {
   font-family: 'FontAwesome';
   content: "\f0dd";
-  }
+}
 
 .desc:before {
   font-family: 'FontAwesome';
   content: "\f0de";
-  }
+}
 
-//Basic classes
+// Basic classes
 .center {
   text-align: center;
 }
@@ -37,26 +37,26 @@ h4 {
   color: #a6793e;
 }
 
-//Adding to bootstrap
+// Adding to bootstrap
 .container-fluid {
-  padding: 30px;
   background-color: $main-bg;
       }
         
 .form-control {
   width: 75%;
   background-color: lighten($main-bg, 4%);
-    }
+}
+
 .btn-default {
   background-color: lighten($main-bg, 4%);
-    }
+}
 
-//TodoList
+// TodoList
 .todo_div {
   height: 300px;
       }
 
-//Scaffold
+// Scaffold
 body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -123,8 +123,9 @@ div {
     font-size: 12px;
     list-style: square;
   }
-        }
-//commissions
+}
+
+// commissions
 .total_commission {
   @extend h2
-      }
+}

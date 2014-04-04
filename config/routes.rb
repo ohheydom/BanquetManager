@@ -10,13 +10,11 @@ BanquetManager::Application.routes.draw do
   end
 
   unauthenticated do
-    root to: 'main#main'
+    root to: 'homes#show'
   end
 
   resources :clients
-  get 'main', to: 'main#main', as: :main
-  get 'six_week_schedule', to: 'todolist#six_week_schedule', as: :todolist
-  get 'commissions', to: 'commissions#commissions', as: :commissions
-
-  post 'clients', to: 'clients#index', as: :clients_index
+  resource :home, only: [:show]
+  resource :todolist, only: [:show]
+  resource :commissions, only: [:show]
 end

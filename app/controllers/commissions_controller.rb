@@ -1,6 +1,6 @@
 class CommissionsController < ApplicationController
   before_filter :authenticate_user!
-  def commissions
+  def show
     extract = "EXTRACT(MONTH FROM date_of_event) = ? AND EXTRACT(YEAR FROM date_of_event) = ?"
     extract_booked = "EXTRACT(MONTH FROM date_booked) = ? AND EXTRACT(YEAR FROM date_booked) = ?"
     today = Date.today
