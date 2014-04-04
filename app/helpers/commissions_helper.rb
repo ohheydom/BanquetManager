@@ -15,8 +15,8 @@ module CommissionsHelper
 
   def compute_commission_on_all(new_events, month_events)
     amount = 0
-    new_events.each { |event| amount+= compute_commission_on_new_party(event) }
-    month_events.each { |event| amount+= compute_commission_on_positive_adjustment(event) }
+    new_events.each { |event| amount += compute_commission_on_new_party(event) }
+    month_events.each { |event| amount += compute_commission_on_positive_adjustment(event) }
     return amount
   end
 end

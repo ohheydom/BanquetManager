@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @clients = User.find(current_user.id).clients.public_send(date_scope).search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 50, page: params[:page])
+    @clients = User.find(current_user.id).clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page])
   end
 
   def show
@@ -61,14 +61,14 @@ class ClientsController < ApplicationController
   end
 
   def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Client.column_names.include?(params[:sort]) ? params[:sort] : 'name'
   end
 
   def sort_direction
-    %w(asc desc).include?(params[:direction]) ? params[:direction] :  "asc"
+    %w(asc desc).include?(params[:direction]) ? params[:direction] :  'asc'
   end
   
   def date_scope
-    %w(past future load).include?(params[:datescope]) ? params[:datescope] : "load"
+    %w(past future load).include?(params[:datescope]) ? params[:datescope] : 'load'
   end
 end
