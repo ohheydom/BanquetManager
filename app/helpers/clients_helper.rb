@@ -13,7 +13,7 @@ module ClientsHelper
   def sort_direction
     %w(asc desc).include?(params[:direction]) ? params[:direction] :  'asc'
   end
-  
+
   def date_scope
     %w(past future load).include?(params[:datescope]) ? params[:datescope] : 'load'
   end
