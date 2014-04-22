@@ -4,21 +4,21 @@ class ClientsController < ApplicationController
   include ClientsHelper
 
   def index
-    @clients = User.find(current_user.id).clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page])
+    @clients = current_user.clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page])
   end
 
   def show
   end
 
   def new
-    @client = User.find(current_user.id).clients.new
+    @client = current_user.clients.new
   end
 
   def edit
   end
 
   def create
-    @client = User.find(current_user.id).clients.new(client_params)
+    @client = current_user.clients.new(client_params)
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
@@ -53,7 +53,7 @@ class ClientsController < ApplicationController
   private
 
   def set_client
-    @client = User.find(current_user.id).clients.find(params[:id])
+    @client = current_user.clients.find(params[:id])
   end
 
   def client_params

@@ -1,5 +1,5 @@
 %div.row
-  - @dates.each do |date|
+  - six_week_start_dates.each do |date|
     %div.col-md-12.todo_div
       %h2.center= "#{date.strftime("%D")} - #{(date+5).strftime("%D")}"
       %div.col-md-4
