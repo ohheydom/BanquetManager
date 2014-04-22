@@ -22,9 +22,9 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @client }
+        format.json { render 'show', status: :created, location: @client }
       else
-        format.html { render action: 'new' }
+        format.html { render 'new' }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
@@ -36,7 +36,7 @@ class ClientsController < ApplicationController
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render 'edit' }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end

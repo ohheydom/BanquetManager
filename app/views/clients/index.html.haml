@@ -1,5 +1,5 @@
 %div.row
-  %h1 Clients 
+  %h1 Clients
   %div.col-md-4
     %div.form-group
       = form_tag clients_path, method: 'get', id: 'clients_form' do
@@ -14,4 +14,4 @@
         = submit_tag "Search", name: nil, class: 'btn btn-default'
   %div.col-md-4
   %div.col-md-4
-%div#clients= render partial: 'clients'
+%div#clients= render 'clients'
