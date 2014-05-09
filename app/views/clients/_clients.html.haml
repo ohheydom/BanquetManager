@@ -21,7 +21,7 @@
   %tbody
     - @clients.each do |client|
       %tr
-        %td= link_to client.name, edit_client_path(client)
+        %td= client.edit_link
         %td= client.guests_of_honor
         %td= client.phone_number
         %td= client.date_of_event
@@ -29,7 +29,7 @@
         %td= client.type_of_event
         %td= client.minimum_guarantee
         %td= client.amount_of_guests
-        %td= number_to_currency client.base_price
+        %td= client.base_price
         %td= client.payment_1_date
         %td= client.payment_2_date
         %td= client.final_payment_date
