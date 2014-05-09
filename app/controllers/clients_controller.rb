@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   include ClientsHelper
 
   def index
-    @clients = current_user.clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page])
+    @clients = current_user.clients.public_send(date_scope).search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page: 50, page: params[:page]).decorate
   end
 
   def show

@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'draper', '~> 1.3'
 
 group :doc do
   gem 'sdoc', require: false

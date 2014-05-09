@@ -9,6 +9,6 @@ module ClientValidations
 
     validates_date :payment_2_date, on_or_after: :payment_1_date
     validates_date :payment_1_date, :menu, :payment_2_date, :date_of_event,
-                  :final_payment_date, on_or_after: :date_booked
+                   :final_payment_date, on_or_after: :date_booked
   end
 end

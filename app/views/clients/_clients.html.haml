@@ -34,5 +34,5 @@
         %td= client.payment_2_date
         %td= client.final_payment_date
         %td= client.menu
-        %td= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= client.delete_link
 = will_paginate @clients
