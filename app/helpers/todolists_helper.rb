@@ -15,4 +15,8 @@ module TodolistsHelper
       current_date + 1
     end
   end
+
+  def date_span(date)
+    "#{date.strftime("%D")} - #{(date+5).strftime("%D")}"
+  end
 end

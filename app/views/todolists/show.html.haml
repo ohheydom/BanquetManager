@@ -1,7 +1,7 @@
 %div.row
   - six_week_start_dates.each do |date|
     %div.col-md-12.todo_div
-      %h2.center= "#{date.strftime("%D")} - #{(date+5).strftime("%D")}"
+      %h2.center= date_span(date)
       %div.col-md-4
         %h4 Payments
         - @clients.where("(payment_1_date >= ? AND payment_1_date <= ?) OR (payment_2_date >= ? AND payment_2_date <= ?) OR (final_payment_date >= ? AND final_payment_date <= ?)", date, date+6, date, date+6, date, date+6).each do |client|
