@@ -3,18 +3,18 @@
 %table.table
   %th Name
   %th Commission
-  - current_user.positive_adjustments(type: 'new_events', month: 'this_month').each do |event|
+  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'this_month')).each do |event|
     %tr
       %td= link_to event.name, edit_client_path(event)
-      %td= "#{number_to_currency compute_commission_on_new_party(event)}"
+      %td= event.new_party_commission
 %h3 Positive Adjustments:
 %table.table
   %th Name
   %th Commission
-  - current_user.positive_adjustments(type: 'current', month: 'this_month').each do |event|
+  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'this_month')).each do |event|
     %tr
       %td= link_to event.name, edit_client_path(event)
-      %td= "#{number_to_currency compute_commission_on_positive_adjustment(event)}"
+      %td= event.positive_adjustment_commission
 %div.total_commission= "Total: #{number_to_currency current_user.this_month_commission}"
 %br
 %h2 Last Month:
@@ -22,16 +22,16 @@
 %table.table
   %th Name
   %th Commission
-  - current_user.positive_adjustments(type: 'new_events', month: 'last_month').each do |event|
+  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'last_month')).each do |event|
     %tr
       %td= link_to event.name, edit_client_path(event)
-      %td= "#{number_to_currency compute_commission_on_new_party(event)}"
+      %td= event.new_party_commission
 %h3 Positive Adjustments:
 %table.table
   %th Name
   %th Commission
-  - current_user.positive_adjustments(type: 'current', month: 'last_month').each do |event|
+  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'last_month')).each do |event|
     %tr
       %td= link_to event.name, edit_client_path(event)
-      %td= "#{number_to_currency compute_commission_on_positive_adjustment(event)}"
+      %td= event.positive_adjustment_commission
 %div.total_commission= "Total: #{number_to_currency current_user.last_month_commission}"

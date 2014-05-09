@@ -9,7 +9,7 @@ module CommissionsHelper
 
   def compute_commission_on_positive_adjustment(party)
     party.additional_charges.nil? ? additional_charges = 0 : additional_charges = party.additional_charges
-    comm =  ((additional_charges + ((party.amount_of_guests-party.minimum_guarantee) * party.base_price)) * COMMISSION_RATE) / BREAKAGE_RATE
+    comm =  ((additional_charges + ((party.amount_of_guests - party.minimum_guarantee) * party.base_price)) * COMMISSION_RATE) / BREAKAGE_RATE
     comm.round(2)
   end
 
