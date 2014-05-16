@@ -5,7 +5,7 @@
   %th Commission
   - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'this_month')).each do |event|
     %tr
-      %td= link_to event.name, edit_client_path(event)
+      %td= event.edit_event_link
       %td= event.new_party_commission
 %h3 Positive Adjustments:
 %table.table
@@ -13,7 +13,7 @@
   %th Commission
   - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'this_month')).each do |event|
     %tr
-      %td= link_to event.name, edit_client_path(event)
+      %td= event.edit_event_link
       %td= event.positive_adjustment_commission
 %div.total_commission= "Total: #{number_to_currency current_user.this_month_commission}"
 %br
@@ -24,7 +24,7 @@
   %th Commission
   - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'last_month')).each do |event|
     %tr
-      %td= link_to event.name, edit_client_path(event)
+      %td= event.edit_event_link
       %td= event.new_party_commission
 %h3 Positive Adjustments:
 %table.table
@@ -32,6 +32,6 @@
   %th Commission
   - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'last_month')).each do |event|
     %tr
-      %td= link_to event.name, edit_client_path(event)
+      %td= event.edit_event_link
       %td= event.positive_adjustment_commission
 %div.total_commission= "Total: #{number_to_currency current_user.last_month_commission}"

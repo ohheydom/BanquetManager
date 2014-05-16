@@ -14,4 +14,8 @@ class CommissionDecorator < ApplicationDecorator
     comm = (object.minimum_guarantee * object.base_price) * COMMISSION_RATE / BREAKAGE_RATE
     h.number_to_currency comm.round(2)
   end
+
+  def edit_event_link
+    h.link_to object.name, h.edit_client_path(object)
+  end
 end
