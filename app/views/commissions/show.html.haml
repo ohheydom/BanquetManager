@@ -3,7 +3,7 @@
 %table.table
   %th Name
   %th Commission
-  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'this_month')).each do |event|
+  - @commissions.new_events_this_month.each do |event|
     %tr
       %td= event.edit_event_link
       %td= event.new_party_commission
@@ -11,7 +11,7 @@
 %table.table
   %th Name
   %th Commission
-  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'this_month')).each do |event|
+  - @commissions.current_events_this_month.each do |event|
     %tr
       %td= event.edit_event_link
       %td= event.positive_adjustment_commission
@@ -22,7 +22,7 @@
 %table.table
   %th Name
   %th Commission
-  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'new_events', month: 'last_month')).each do |event|
+  - @commissions.new_events_last_month.each do |event|
     %tr
       %td= event.edit_event_link
       %td= event.new_party_commission
@@ -30,7 +30,7 @@
 %table.table
   %th Name
   %th Commission
-  - CommissionDecorator.decorate_collection(current_user.positive_adjustments(type: 'current', month: 'last_month')).each do |event|
+  - @commissions.current_events_last_month.each do |event|
     %tr
       %td= event.edit_event_link
       %td= event.positive_adjustment_commission
