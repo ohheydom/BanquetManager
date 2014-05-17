@@ -1,5 +1,9 @@
 class CommissionDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :new_events_this_month, with: CommissionDecorator
+  decorates_association :current_events_this_month, with: CommissionDecorator
+  decorates_association :new_events_last_month, with: CommissionDecorator
+  decorates_association :current_events_last_month, with: CommissionDecorator
 
   COMMISSION_RATE = '.04'.to_f
   BREAKAGE_RATE = '1.18'.to_f # leave at 1 if no amount is deducted from commission
