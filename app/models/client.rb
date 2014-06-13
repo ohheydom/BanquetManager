@@ -1,5 +1,6 @@
 class Client < ActiveRecord::Base
   include ClientValidations
+  include TodolistDates
 
   belongs_to :user
   scope :future, -> { where('date_of_event > ?', Date.today) }
