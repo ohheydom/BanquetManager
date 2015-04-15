@@ -15,6 +15,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'draper', '~> 1.3'
+gem 'test-unit'
 
 group :doc do
   gem 'sdoc', require: false
