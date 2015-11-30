@@ -19,6 +19,7 @@ bundle install
 Adjust the username and password in the database.yml file to match your postgres roles.
 
 ```
+rake db:setup
 rake db:migrate
 ```
 
