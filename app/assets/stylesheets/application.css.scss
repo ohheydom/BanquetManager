@@ -52,18 +52,13 @@ h4 {
 }
 
 // TodoList
-.todo_div {
+#todo {
   height: 300px;
-      }
-
-// Scaffold
-body {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
 }
 
-p, ol, ul, td {
+// Scaffold
+
+body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -96,13 +91,13 @@ div {
   color: green;
 }
 
-.field_with_errors {
+.field-with-errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-#error_explanation {
+#error-explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px;
@@ -126,6 +121,6 @@ div {
 }
 
 // commissions
-.total_commission {
+.total-commission {
   @extend h2
 }

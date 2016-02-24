@@ -15,7 +15,7 @@
     %tr
       %td= event.edit_event_link
       %td= event.positive_adjustment_commission
-%div.total_commission= "Total: #{number_to_currency current_user.this_month_commission}"
+%div.total-commission= "Total: #{number_to_currency current_user.this_month_commission}"
 %br
 %h2 Last Month:
 %h3 New Events:
@@ -34,4 +34,4 @@
     %tr
       %td= event.edit_event_link
       %td= event.positive_adjustment_commission
-%div.total_commission= "Total: #{number_to_currency current_user.last_month_commission}"
+%div.total-commission= "Total: #{number_to_currency current_user.last_month_commission}"
